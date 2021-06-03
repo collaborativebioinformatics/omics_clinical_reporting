@@ -1,0 +1,43 @@
+#R files
+.Rhistory
+.Rproj.user/
+*.sqlite
+*.RDS
+
+#hidden caches
+~$*
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+
+#OS specific
+.DS_Store
+
+sample_html_report.html
+.Rproj.user

@@ -1,0 +1,4 @@
+name: create_omics_report
+description: >
+   A quick overview of producing a clinical report from multi-omics sequencing data.
+create_dir: FALSE

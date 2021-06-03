@@ -1,0 +1,12 @@
+[submodule "clinical_SVs"]
+	path = clinical_SVs
+	url = https://github.com/collaborativebioinformatics/clinical_SVs/
+[submodule "polygenic_risk"]
+	path = polygenic_risk
+	url = https://github.com/collaborativebioinformatics/PRS_reporting
+[submodule "dna_rna_snvs"]
+	path = dna_rna_snvs
+	url = https://github.com/collaborativebioinformatics/expression_and_SNPs_to_clinic
+[submodule "example_multiomics_results/OMOP_data_model"]
+	path = example_multiomics_results/OMOP_data_model
+	url = https://github.com/collaborativebioinformatics/omics_to_omop

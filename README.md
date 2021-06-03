@@ -62,3 +62,9 @@ The tools provide Link to local genetic counselor, link to clinical trials relat
 <img width="596" alt="Screenshot 2021-06-02 at 19 10 16" src="https://user-images.githubusercontent.com/41301333/120531179-400ddc80-c3d6-11eb-8c55-7d76e646c968.png"> 
 # omics_clinical_reporting
 Clinical_Report_Design_for_omics_integration
+
+
+# References 
+
+* [github submodules](https://github.blog/2016-02-01-working-with-submodules/)
+* [Rmarkdown templates](https://rstudio4edu.github.io/rstudio4edu-book/rmd-templates.html)

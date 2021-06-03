@@ -1,0 +1,9 @@
+Run	AvgSpotLen	LibrarySource	cell_line	cell_type
+SRR2989965	199	GENOMIC	SKOV3	ovarian tumor cell line
+SRR2989966	199	GENOMIC	GOC2	ovarian tumor cell line
+SRR2989967	199	GENOMIC	FB	normal fibroblast cell line
+SRR2989968	199	GENOMIC	OE	normal ovarian epithelial cell line
+SRR2989978	200	TRANSCRIPTOMIC	SKOV3	ovarian tumor cell line
+SRR2989979	201	TRANSCRIPTOMIC	GOC2	ovarian tumor cell line
+SRR2989980	202	TRANSCRIPTOMIC	FB	normal fibroblast cell line
+SRR2989981	200	TRANSCRIPTOMIC	OE	normal ovarian epithelial cell line

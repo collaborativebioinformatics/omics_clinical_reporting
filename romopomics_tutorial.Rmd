@@ -1,0 +1,153 @@
+---
+title: "ROMOPOmics"
+author: "Jenny Smith"
+date: "6/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ROMOPOmics)
+library(tidyverse)
+```
+
+# Introduction to ROMOPOmics
+
+ROMOPOmics was developed to standardize metadata of high throughput assays with associated patient clinical data. Biomedical research datasets such as RNA-Seq experiments or other next generation sequencing datasets contain a mixture of clinical traits of the studied patients including data derived from samples perturbed by different assays, at different timepoints, with varying protocols, and more. Additionally, next generation sequencing datasets include metadata on pipeline byproducts (alignment files, raw reads, readmes, etc.) and analysis results of any type (gene counts, differential expression data, quality control analyses, etc.). Our package ROMOPOmics provides a framework to standardize these datasets and a pipeline to convert this information into a SQL-friendly database that is easily accessed by users. After installation of our R package from the github repository, users specify a data directory and a mask file describing how to map their data's fields into a common data model. The resulting standardized data tables are then formatted into a SQLite database for easily interoperating and sharing the dataset.
+
+See the ROMOPOmics vignette in the package for more details. 
+
+# Creating a database of 1
+
+Let's say we have a cancer patient Sally that has undergone treatment and genomic testing. 
+
+The objective is, given her data that is available, represent it in a logical and relational format. 
+
+Sally is a person with a condition (glioblastoma cancer) at an anatomical site (brain). She recently had a cancer report (note) with the title "MSK Impact report" on the date "2018/03/01". The site of the sample (specimen) was at her brain where the cancer is found, and the report found two mutations (variations) in two genes: ARID1A and ARID1B. The mutation type (variation_status) was a SNP in ARID1A and CNV in ARID1B.
+
+This is a very simple, made up example. However, the relationship between person, cancer, and mutations can be clearly made using a common data model. More complexity can be added by including the cancer metastasis, multiple genomic profilings, drug treatments applied to specimens with a particular genomic profile, etc. With more complexity comes the need to include more logic and relationships, but this is a *solved* problem (a data model can be developed and customized according to certain standards). 
+
+If we have that information available to us, we can generate her own database of clinical and 'omics data.
+
+# Data Model
+
+The data model *should* follow the protocol developed by OHDSI found [here](https://github.com/OHDSI/CommonDataModel/blob/master/OMOP_CDM_v6_0.pdf).
+
+```{r loadDataModel,echo=TRUE}
+dm <- loadDataModel(as_table_list = FALSE)
+```
+
+```{r}
+dm
+```
+
+# Input Data
+
+We need to have a matrix of information for Sally
+
+```{r data_generation}
+df <- 
+data.frame(
+  "patient" = "Sally",
+  "tumor_type" = "glioblastoma",
+  "cancer_report" = "MSK Impact report",
+  "cancer_report_date" = "2018/03/01",
+  "specimen" = "brain",
+  "mutation_1" = "ARID1A",
+  "mutation_2" = "ARID1B",
+  "mutation_1_type" = "SNP",
+  "mutation_2_type" = "CNV"
+  )
+df %>% write_csv("../inst/extdata/Nof1.csv")
+df
+```
+
+# Mask Data
+
+We need to have a mask in order to map to OMOP's common data model fields and tables.
+
+```{r mask_generation}
+mask_df <- 
+data.frame(
+  "alias" = 
+    colnames(df),
+  "example1" = 
+    df[1,] %>% unlist() %>% unname(),
+  "field" = 
+    c("person_id","specimen_source_value",
+      "note_title","note_date",
+      "anatomic_site_source_value",
+      "variant_source_value","variant_source_value",
+      "variant_status_source_value","variant_status_source_value"),
+  "table" = 
+    c("person","specimen","note","note","specimen","variation","variation","variation","variation"),
+  "field_idx" = 
+    c(NA,NA,NA,NA,NA,1,2,1,2),
+  "set_value" =
+    c(NA,NA,NA,NA,NA,NA,NA,NA,NA)
+)
+mask_df %>% write_csv("../inst/extdata/Nof1_mask.csv")
+mask_df
+```
+
+# Load Mask Data
+
+Now we load the masks available in our folder. 
+
+```{r load_masks}
+msks <- loadModelMasks(mask_files = "../inst/extdata")
+```
+
+# Translate into Common Data Model
+
+Now we translate the given input to the common data model via the mask. 
+
+```{r translate}
+nof1data <- list.files('../inst/extdata',"Nof1.csv")
+omop_inputs <- 
+  readInputFile(
+    input_file = "../inst/extdata/Nof1.csv",
+    mask_table = msks$Nof1,
+    data_model = dm,
+    transpose_input_table = T
+    )
+```
+
+# Make database input tables
+
+Here, we parse the map from above into individual OMOP formatted tables. 
+
+```{r db}
+db_inputs   <- combineInputTables(input_table_list = omop_inputs)
+db_inputs
+```
+
+# Make OMOP database
+
+And we can create a simple SQL database from these tables.
+
+```{r omop_db}
+omop_db     <- buildSQLDBR(db_inputs,sql_db_file = file.path(tempdir(),"Nof1.sqlite"))
+```
+
+# Show tables
+
+Here are some familiar, example queries. 
+
+```{r show_tables}
+DBI::dbListTables(omop_db)
+DBI::dbGetQuery(omop_db,
+'SELECT *
+from person
+')
+DBI::dbGetQuery(omop_db,
+'SELECT *
+from variation
+')
+DBI::dbDisconnect(omop_db)
+```
+
+# Conclusion
+
+For adding additional data, one can append the database tables together if you happen to make data in Dec 2020 and then in Dec 2021 for example. It also puts a lot of things like time of treatment and biopsy sites and data and conditions within the context of bryce instead of the context of just the sample. It also makes SQL queries easy so more people (executives/doctors/etc) can view and ask questions of his data.
