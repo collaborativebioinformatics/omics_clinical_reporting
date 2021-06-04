@@ -21,6 +21,7 @@ To develop a tool to facilitate reporting of multiomics data. The tool generates
 
 Many multi-omics datasets of different diseases have been generated and the availability of many new analytical tools are now for the first time allowing the combining of all of these resources in several ways in clinical reporting. The identification of biologically meaningful targets using multi-omics data will allow for better stratification, more targeted treatments, and a greater understanding of disease mechanisms.
 
+<img width="1382" alt="omicsReportR" src="https://user-images.githubusercontent.com/18451714/120825487-4bfcba00-c50e-11eb-9c4e-465a58536b8b.png">
 
 # Installation 
 
