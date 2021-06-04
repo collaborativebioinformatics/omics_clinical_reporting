@@ -1,0 +1,15 @@
+[submodule "multiomics_results/clinical_SVs"]
+	path = multiomics_results/clinical_SVs
+	url = https://github.com/collaborativebioinformatics/clinical_SVs
+[submodule "multiomics_results/polygenic_risk"]
+	path = multiomics_results/polygenic_risk
+	url = https://github.com/collaborativebioinformatics/PRS_reporting
+[submodule "multiomics_results/dna_rna_SNVs"]
+	path = multiomics_results/dna_rna_SNVs
+	url = https://github.com/collaborativebioinformatics/expression_and_SNPs_to_clinic
+[submodule "multiomics_results/OMOP_data_model"]
+	path = multiomics_results/OMOP_data_model
+	url = https://github.com/collaborativebioinformatics/omics_to_omop
+[submodule "multiomics_results/tcr_seq"]
+	path = multiomics_results/tcr_seq
+	url = https://github.com/collaborativebioinformatics/TCRs_to_clinic
