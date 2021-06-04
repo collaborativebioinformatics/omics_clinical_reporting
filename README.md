@@ -32,7 +32,7 @@ Omics-ReportR is available in GitHub https://github.com/collaborativebioinformat
 
 ## Inputs
 
-currently planning to have inputs come from a SQLITE table
+SQLITE table
 
 ## Outputs
 
