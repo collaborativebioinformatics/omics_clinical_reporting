@@ -112,8 +112,9 @@ Below are the some images to illustrate the template formats that will need to b
 <br/>
 <br/>
 
-## Integration of Data Sources from OMOP database
 
+<img width="929" alt="example_poster_template" src="https://user-images.githubusercontent.com/18451714/120835926-d4cd2300-c519-11eb-9c25-f2ae132b99da.png">
+<figcaption>Example of poster template to be created for the UX implementation. </figcaption>
 
 
 
