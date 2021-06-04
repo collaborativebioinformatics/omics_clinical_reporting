@@ -46,24 +46,9 @@ Omics-ReportR requires a SQLITE table that includes all the variants that should
 
 #Flow Chart
 
-
-<img width="852" alt="Screenshot 2021-06-02 at 13 08 20" src="https://user-images.githubusercontent.com/41301333/120477397-a4637880-c3a3-11eb-9ebd-1ae1a18f11a2.png">
-
+![diagram flow chart](https://user-images.githubusercontent.com/41301333/120810257-c3e4d780-c542-11eb-817b-40d07bd8841d.jpg)
 
 
-1-EXPERT VIEW
-
-  Gene-level summary in addition to information about associated disease.
-  Links to the gene's page on OMIM, GTEx, gnomAD.
-  A dynamic table with the annotated variants overlapping the gene.
-  A graph with showing summary of all the variants within the gene.
-  Chromosome location.
-  Table showing summary of gene expression analysis.
-  Tissue specific gene expression summary table.
-  PRS score
-  SV data summary 
- 
- 2- Patients, non-specialist clinicians
 
  
 genomics data simplification, which genes are overexpressed, how much of a gene is overexpressed (how the cohort respond to a certain treatment regarding this gene), In the gene level summary of the most pathogenic variants identified, each column in the dynamic table can be sorted and searched dynamically, and all data used by the app is available for download in tab-delimited files. By default, allele frequency is reported based on dbVar and gnomAD genomes and exomes. 
@@ -78,6 +63,32 @@ Clinicians already interface with a wide variety of tools when examining a patie
 Omics-ReportR will ultimately produce two types of reports, a clinician (non-specialist) report and a genomics researcher (specialist) report. The researcher report will prioritize displaying all available genomics data to the viewer, and will be able to display customized results depending on what types of information the researcher is interested in. The clinician report will contain a summary of -omics data that is relevant to clinical decision-making, allowing clinicians to skim the report if desired. The summary data will also break down the -omics data into clinically relevant and more understandable terms.
 
 A single patient can generate hundreds of pieces of clinical data in the hospital as well, adding to the cognitive burden of the treating physicians. Well-designed reporting supports a clinician’s ability to prioritize the given information, understand the material faster, and reduce the frustration of adapting to new technology. Due to the busy nature of a clinician’s work, we predict that user-friendly, tailored multi-omics reports will result in greater adoption rates as compared to a spreadsheet of data.
+
+# Results 
+
+
+1-EXPERT VIEW
+
+  Gene-level summary in addition to information about associated disease.
+  Links to the gene's page on OMIM, GTEx, gnomAD.
+  A dynamic table with the annotated variants overlapping the gene.
+  A graph with showing summary of all the variants within the gene.
+  Chromosome location.
+  Table showing summary of gene expression analysis.
+  Tissue specific gene expression summary table.
+  PRS score
+  SV data summary 
+  
+  
+  
+  
+ 
+ 2- Patients, non-specialist clinicians
+ 
+ ![Screenshot 2021-06-04 at 14 41 12](https://user-images.githubusercontent.com/41301333/120810613-1f16ca00-c543-11eb-811a-1392b81f620d.png)
+
+
+![Screenshot 2021-06-04 at 14 41 25](https://user-images.githubusercontent.com/41301333/120810636-22aa5100-c543-11eb-9c31-0c7852d5ef2b.png)
 
 
 
