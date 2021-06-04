@@ -2,6 +2,16 @@
 # omics_clinical_reporting
 Clinical_Report_Design_for_omics_integration
 
+# Contributors
+
+Ames Ma: ama@dnanexus.com 
+Ray Funahashi: rwf13@pitt.edu 
+Priyanshu Jain: priyanshuj0410@gmail.com 
+Ahmad Al Khleifat: ahmad.al_khleifat@kcl.ac.uk 
+Aishwarya Chander: aishwaryachander3@gmail.com 
+Jędrzej Kubica: jj.kubica@student.uw.edu.pl 
+
+
 # Goal
 
 To develop a tool to facilitate reporting of multiomics data. The tool generates two reports, one is aimed for clinical use and the second aimed for researchers, informing the interpretation of genetic variants pertaining to the gene provided by the user.
