@@ -104,8 +104,8 @@ Below are the some images to illustrate the template formats that will need to b
 <br/>
 
 <p float="left">
-  <img alt="example_CSS_template" src="https://user-images.githubusercontent.com/18451714/120823045-d98ada80-c50b-11eb-8e8a-3814c0101d2e.png" width="55%" height="55%" />
-  <img alt="example_HTML_template" src="https://user-images.githubusercontent.com/18451714/120823053-db549e00-c50b-11eb-9431-8e73f7ff9e3b.png" width="55%" height="55%" /> 
+  <img alt="example_CSS_template" src="https://user-images.githubusercontent.com/18451714/120823045-d98ada80-c50b-11eb-8e8a-3814c0101d2e.png" width="75%" height="55%" />
+  <img alt="example_HTML_template" src="https://user-images.githubusercontent.com/18451714/120823053-db549e00-c50b-11eb-9431-8e73f7ff9e3b.png" width="75%" height="55%" /> 
   <figcaption>Example of CSS and HTML templates to be created for the UX implementation. </figcaption>
 </p>
 
