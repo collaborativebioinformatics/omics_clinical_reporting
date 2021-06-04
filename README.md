@@ -4,9 +4,9 @@ Clinical_Report_Design_for_omics_integration
 
 # Contributors
 
+Jenny Smith: jennyl.smith12@gmail.com 
 Ames Ma: ama@dnanexus.com 
 Ahmad Al Khleifat: ahmad.al_khleifat@kcl.ac.uk 
-Jenny Smith: jennyl.smith12@gmail.com 
 Ray Funahashi: rwf13@pitt.edu 
 Priyanshu Jain: priyanshuj0410@gmail.com 
 Aishwarya Chander: aishwaryachander3@gmail.com 
