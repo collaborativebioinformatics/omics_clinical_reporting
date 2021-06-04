@@ -91,9 +91,17 @@ A single patient can generate hundreds of pieces of clinical data in the hospita
 ![Screenshot 2021-06-04 at 14 41 25](https://user-images.githubusercontent.com/41301333/120810636-22aa5100-c543-11eb-9c31-0c7852d5ef2b.png)
 
 
+# Formatting and Styling in Rmarkdown
+
+The next steps are to re-create the patient/clinician report using Rmarkdown. This will require the development of a new css and html template. The R package `pagedown` was the inspiration for creating these css/html templates and we will plan on using the the `pagedown` templates to design our own UX design for the report. 
+Below are the some images to illustrate the template formats that will need to be created, and are taken from the `pagedown::poster-relaxed` format to start. 
+
+
 
 
 # References 
 
 * [github submodules](https://github.blog/2016-02-01-working-with-submodules/)
 * [Rmarkdown templates](https://rstudio4edu.github.io/rstudio4edu-book/rmd-templates.html)
+* [Rmarkdown css](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style)
+
