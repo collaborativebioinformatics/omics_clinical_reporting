@@ -96,6 +96,7 @@ A single patient can generate hundreds of pieces of clinical data in the hospita
 The next steps are to re-create the patient/clinician report using Rmarkdown. This will require the development of a new css and html template. The R package `pagedown` was the inspiration for creating these css/html templates and we will plan on using the the `pagedown` templates to design our own UX design for the report. 
 Below are the some images to illustrate the template formats that will need to be created, and are taken from the `pagedown::poster-relaxed` format to start. 
 
+![css](https://user-images.githubusercontent.com/18451714/120823045-d98ada80-c50b-11eb-8e8a-3814c0101d2e.png)![html](https://user-images.githubusercontent.com/18451714/120823053-db549e00-c50b-11eb-9431-8e73f7ff9e3b.png)
 
 
 
