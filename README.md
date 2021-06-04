@@ -22,8 +22,7 @@ To develop a tool to facilitate reporting of multiomics data. The tool generates
 Many multi-omics datasets of different diseases have been generated and the availability of many new analytical tools are now for the first time allowing the combining of all of these resources in several ways in clinical reporting. The identification of biologically meaningful targets using multi-omics data will allow for better stratification, more targeted treatments, and a greater understanding of disease mechanisms.
 
 <img width="1382" alt="omicsReportR" src="https://user-images.githubusercontent.com/18451714/120825487-4bfcba00-c50e-11eb-9c4e-465a58536b8b.png">
-
-<figcaption>Example of CSS and HTML templates to be created for the UX implementation. </figcaption>
+<figcaption>Flowchart illustrating the different data types and thier integration into a clinical report. </figcaption>
 
 # Installation 
 
@@ -94,7 +93,9 @@ A single patient can generate hundreds of pieces of clinical data in the hospita
 ![Screenshot 2021-06-04 at 14 41 25](https://user-images.githubusercontent.com/41301333/120810636-22aa5100-c543-11eb-9c31-0c7852d5ef2b.png)
 
 
-# Formatting and Styling in Rmarkdown
+# Next Steps
+
+## Formatting and Styling in Rmarkdown
 
 The next steps are to re-create the patient/clinician report using Rmarkdown. This will require the development of a new css and html template. The R package `pagedown` was the inspiration for creating these css/html templates and we will plan on using the the `pagedown` templates to design our own UX design for the report. 
 Below are the some images to illustrate the template formats that will need to be created, and are taken from the `pagedown::poster-relaxed` format to start. 
@@ -103,13 +104,17 @@ Below are the some images to illustrate the template formats that will need to b
 <br/>
 
 <p float="left">
-  <img alt="example_CSS_template" src="https://user-images.githubusercontent.com/18451714/120823045-d98ada80-c50b-11eb-8e8a-3814c0101d2e.png" width="35%" height="35%" />
-  <img alt="example_HTML_template" src="https://user-images.githubusercontent.com/18451714/120823053-db549e00-c50b-11eb-9431-8e73f7ff9e3b.png" width="35%" height="35%" /> 
+  <img alt="example_CSS_template" src="https://user-images.githubusercontent.com/18451714/120823045-d98ada80-c50b-11eb-8e8a-3814c0101d2e.png" width="45%" height="45%" />
+  <img alt="example_HTML_template" src="https://user-images.githubusercontent.com/18451714/120823053-db549e00-c50b-11eb-9431-8e73f7ff9e3b.png" width="45%" height="45%" /> 
   <figcaption>Example of CSS and HTML templates to be created for the UX implementation. </figcaption>
 </p>
 
 <br/>
 <br/>
+
+## Integration of Data Sources from OMOP database
+
+
 
 
 # References 

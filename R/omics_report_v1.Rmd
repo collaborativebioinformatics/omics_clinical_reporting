@@ -1,0 +1,263 @@
+---
+title: "<div class='styleTitleHeader'> Multi-Omics Integrated Reporting </div>"
+author: "<div class='styleAuthors'> Ames Ma, Ray Funahashi,Aishwarya Chander,Jędrzej Kubica,Priyanshu Jain,  Jenny Leopoldina Smith, and Ahmad Al Khleifat </div>"
+date: "<div class='styleDate'> `r format(Sys.Date(), tz = 'America/Los_Angeles')` </div>"
+always_allow_html: true
+output:
+  html_document:
+    theme: yeti
+    highlight: breezedark
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true
+    df_print: paged
+---
+
+
+```{r setup, include=FALSE, echo=FALSE}
+require(knitr)
+knitr::opts_knit$set(root.dir = here::here())
+
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=50),
+                      tidy=TRUE,
+                      rows.print=6,
+                      fig.align='center',
+                      fig.width = 5, fig.height = 7,
+                      message=FALSE,
+                      warning=FALSE)
+
+rmarkdown::find_pandoc(cache = FALSE)
+```
+
+```{r echo=FALSE, message=FALSE}
+library(dplyr)
+library(magrittr)
+library(tidyr)
+library(stringr)
+
+library(here)
+library(ROMOPOmics)
+library(tidyverse)
+# library(shiny)
+
+library(ggplot2)
+library(gridExtra)
+library(RColorBrewer)
+
+
+# suppressPackageStartupMessages(library(vcfR))
+# suppressPackageStartupMessages(library(VariantAnnotation))
+```
+
+
+```{css echo=FALSE}
+/* TODO: MAKE this a seperate custom css file */
+
+.styleTitleHeader {   
+  color: dark grey; 
+  padding: 2.25rem;
+  margin-top: 1rem;
+  background-image: linear-gradient("#406b7a", "#008cba") !important;
+  border-radius: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.styleTitleHeader h1 {
+  margin: 0;
+}   
+
+.styleAuthors {    
+  color: dark grey;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.styleDate {    
+  color: dark grey;
+  text-align: center;
+  margin-top: -1rem;
+}
+```
+
+
+
+Multi-Omics Clinical Reporting [with]{.tiny} Rmarkdown
+================================================================================
+
+
+<!-- ![a flowchart]("assets/omicsReportR.png") -->
+
+```{r echo=FALSE, fig.cap="snpReportR: A Method for Multi-Omics Genetic Reporting", out.width = "50%", fig.align='center'}
+knitr::include_graphics(here::here("assets/omicsReportR.png"))
+```
+
+
+
+Patient Information
+================================================================================
+
+This section provides information on the patient and their relevant clinical information. 
+
+
+## Patient DOB
+
+```{r echo=FALSE}
+#These need to become API queries to an EHR database or other clinical database which has the patient information and the test information
+pt.info <- data.frame("Information"=c("Name:", 
+                                        "DOB:",
+                                        "Sex:",
+                                        "Genetic Tests:"), 
+                        "Value"=c("Jane Doe","01/01/1900","F","RNA, DNA, and TCR sequencing"))
+                                          
+knitr::kable(pt.info, caption = "Patient details:",align="l") %>% 
+  kableExtra::kable_paper(full_width = F, position = "left")
+```
+
+
+
+# Genetic Tests
+================================================================================
+
+```{r, include=FALSE}
+genetic_testing = 'Genetic testing was carried out using RNA-sequencing, DNA-sequencing, and TCR sequencing. These data were used to determine the expressed variants for single nucleotide variants (SNVs) and single nucleotide polymorphisms (SNPs) by transcriptomics, and  also allowed one to determine  both somatic and germline variants using DNA. In addition, large chromosomal rearrangment, called structural variants (SVs), were identifed using [DNA or RNA?] sequencing. Finally,  TCR sequencing allows one to investigate how immune system/inflammation maybe affected due to disease or other underlying conditions.'
+```
+
+## Genetic testing performed
+
+`r genetic_testing`
+
+![The genetic testing results are compiled and the report is produced with  **OmicsReportR**](https://user-images.githubusercontent.com/41301333/120476740-dd4f1d80-c3a2-11eb-9c81-248f56bfb84f.png)
+
+## Test Information
+
+```{r, echo=FALSE}
+test.info <- data.frame("Testing Methodolgy"=c("DNA-seq:", 
+                                    "RNA-seq:",
+                                    "TCR-seq:"), 
+                        "Description"=c("DNA", "RNA",  "T-Cell Receptor sequencing"))
+                                          
+knitr::kable(test.info, caption = "Test details:",align="l") %>% 
+  kableExtra::kable_paper(full_width = F, position = "left")
+```
+
+
+# Testing Completed
+
+## Genetic Varaints - SNVs and SNPs
+
+```{r}
+# knitr::include_graphics(here::here("multiomics_results/dna_rna_SNVs/"))
+```
+
+`r genetic_testing`
+
+## Structural Variants - Indels 
+
+```{r echo=FALSE, out.width="50%", out.height="40%", fig.cap="Structure Variants Identified.",fig.show='hold',fig.align='center'}
+knitr::include_graphics(here::here("multiomics_results/clinical_SVs/VCF analysis/output.png"))
+```
+
+`r genetic_testing`
+
+## T-cell Receptor Sequencing
+
+```{r out.width="49%", out.height="20%", fig.cap="TCR-Sequencing Results.",fig.show='hold',fig.align='center'}
+knitr::include_graphics(here::here(c("assets/TCR-Clonotype-Tracking.png","assets/TCR-V-Gene-Usage.png")))
+```
+
+`r genetic_testing`
+
+## Polygenic Risk Score
+
+<!-- ![Image Title](./path/to/image.pdf){width=65%} -->
+
+```{r echo=FALSE}
+PRS <- data.frame(c("sample_1_0"),
+                  c("ovarian_cancer"),
+                  c(1.7265))
+
+colnames(PRS) <- c("sample_id","disease","prs_score")
+
+# PRS
+```
+
+```{r echo=FALSE}
+knitr::kable(PRS, caption = "Polygenic Risk Score",align="c") %>% 
+  kableExtra::kable_paper(full_width = F, position = "c")
+```
+
+```{r out.width="50%", out.height="40%", fig.cap="Polygenetic Risk Score (PRS) Identified.",fig.show='hold',fig.align='center', echo=FALSE}
+# knitr::include_graphics(here::here("multiomics_results/polygenic_risk/outputs/results_visualization/PRS_feature_importance.pdf"))
+knitr::include_graphics(here::here(c("assets/PRS_dise_prob.png","assets/PRS_patient_1.png")))
+```
+
+
+`r genetic_testing`
+
+## OMOP database
+
+An SQLite database was created with the outputs and is available for cohort level queries:
+
+```{r omop_db, echo=FALSE}
+omop_db   <- DBI::dbConnect(drv=RSQLite::SQLite(), 
+                       dbname="multiomics_results/OMOP_data_model/data/omop_omics.sqlite")
+
+table_names <- DBI::dbListTables(omop_db)
+# table_names
+```
+
+`r table_names`
+
+
+`r genetic_testing`
+
+
+Important Findings {.tabset}
+================================================================================
+
+## Patient Level 
+
+`r genetic_testing`
+
+
+## Cohort Level
+
+Here are some highlight cohort level information:  
+
+```{r show_tables, echo=FALSE}
+knitr::kable(head(DBI::dbGetQuery(omop_db,
+            'SELECT *
+            from variation
+            '), n=5),
+            caption = "Genetic Variants",align="c") %>% 
+  kableExtra::kable_paper(full_width = F, position = "center")
+
+
+knitr::kable(head(DBI::dbGetQuery(omop_db,
+            'SELECT *
+            from TCR_SEQUENCING
+            '), n=5), 
+            caption = "TCR Sequencing Data",align="c") %>% 
+  kableExtra::kable_paper(full_width = F, position = "float_right")
+```
+
+```{r echo=FALSE}
+DBI::dbDisconnect(omop_db)
+```
+
+```{r echo=FALSE, out.width="50%", out.height="40%", fig.cap="Schematic of Cohort Level Data Model",fig.show='hold',fig.align='center',}
+knitr::include_graphics(here::here("multiomics_results/OMOP_data_model/docs/figs/schematic_final_1.jpg"))
+```
+
+
+`r genetic_testing`
+
+
+
+References
+================================================================================
+
+`r genetic_testing`
