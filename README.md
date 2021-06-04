@@ -123,4 +123,5 @@ Below are the some images to illustrate the template formats that will need to b
 * [github submodules](https://github.blog/2016-02-01-working-with-submodules/)
 * [Rmarkdown templates](https://rstudio4edu.github.io/rstudio4edu-book/rmd-templates.html)
 * [Rmarkdown css](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style)
+* [pagedown](https://github.com/rstudio/pagedown)
 
