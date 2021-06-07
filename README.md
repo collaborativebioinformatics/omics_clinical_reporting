@@ -66,6 +66,8 @@ Omics-ReportR will ultimately produce two types of reports, a clinician (non-spe
 
 A single patient can generate hundreds of pieces of clinical data in the hospital as well, adding to the cognitive burden of the treating physicians. Well-designed reporting supports a clinician’s ability to prioritize the given information, understand the material faster, and reduce the frustration of adapting to new technology. Due to the busy nature of a clinician’s work, we predict that user-friendly, tailored multi-omics reports will result in greater adoption rates as compared to a spreadsheet of data.
 
+References: Pollack AH, Pratt W. Association of Health Record Visualizations With Physicians' Cognitive Load When Prioritizing Hospitalized Patients. JAMA Netw Open. 2020;3(1):e1919301. Published 2020 Jan 3. doi:10.1001/jamanetworkopen.2019.19301
+
 # Results 
 
 
